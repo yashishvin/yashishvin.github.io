@@ -6,10 +6,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <script src="particles.js"></script>
+    <script>
+      particleJS
+    </script>
+    <nav  class="navbar navbar-expand-lg navbar-light bg-light">
        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -17,15 +22,20 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           
-          <a class="dropdown-item" href="yashishvinpothuriresume.pdf"Download>Download My Resume</a>
+          <a class="dropdown-item" href="UBFINALCV.pdf"Download>Download My Resume</a>
           <a class="dropdown-item" href="foodvlog.html"Download>Download my food blog</a>
   
         </div>
-      </div>
+      </div> -->
       
       <a class="nav-link" href="index.html">HOME </a>
       <a class="nav-link" href="foodvlog.html">MY FOOD BLOG </a>
       <a class="nav-link" href="Photography.html">Photgraphy </a>
+      <a class="nav-link" href="#intro">Introduction</a>
+      <a class="nav-link" href="#My Projects">My Projects</a>
+      <a class="nav-link" href="#coursework"> My Course Work</a>
+      <a class="nav-link" href="#skills">Skills</a>
+      <a class="nav-link" href="#contactme">Contact</a>
       
      
         
@@ -39,45 +49,79 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <body>
     
-    <div>
-        <div id="init" class="jumbotron text-center"  style="background-color: #00F3FF" height="400px" width="auto">
-            <div class="row">
-                
-                <div class="col-sm-8">
-                    <p>Hey Welcome to my page I have many Interesting thins Lined up for you today 
-                      You can find all my information below I have also provided my contact information
-                      You can find a link to download my resume above. Also checkout my Page on Photgraphy and my Food Blog. I am sure you will have a great time her. Feel free to reach out to me.
-                    </p>    
+  
+      
+        
+          <div  style="padding-left:25px;padding-right:25px;padding-top:25px">
+           
+        <div id="init" class="jumbotron " style="background-image: linear-gradient(239deg,#2d2f35 0%,#0092cc 100%)!important;width: 100%;height:370px;color:white"  >
+          
+          <div class="row">
+                 <div class="col-sm-10" >
+                  <h1 id="about me">About Me</h1>
+                      <p id="intro">
+                      Hi there welcome to my page this is Yashishvin Pothuri. I am a Senior majoring in Computer Science at University of Wisconsin-Madison.  Among the classes I have taken in my Undergraduate education I have been really fascinated by what I have learnt in the areas of Human Computer Interaction and Machine Learning. I am specifically interested in how tools from these two areas can be applied in the field of Public health.I look forward to broadening my understanding in these fields.
+                     This is a page I have created to inroduce myself in a better way. I have included my projecs below you can also find my coursework and the skills I have learnt till now below. Apart form my academics I like to spend my free time clicking photographs and cooking. I have included links to my photographs and cooking recipies feel free to check them out.
+                      <br>
+                      <br> 
+                      <a href="UBFINALCV.pdf" class="btn btn-dark"><i class="fa fa-download"></i>Download Resume</a>
+                    </p>
                     </div>
-                
-                <div class="col-sm-4">
-        <img src="image 16.jpeg" alt="profice" height="300px" width="auto" class="rounded"></div>
-                    
-    </div></div>
-    </div>
-    <div class="jumbotron text-center">
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                <div class="col-sm-2">
+                          <img src="image 16.jpeg" alt="profice" height="200px" width="auto" class="rounded"></div>
+                     </div>
+  </div>
+</div>
+
+    
+    <div class="jumbotron text-center" id="My Projects" style="background-color:#2d2f35">
+      <h1 style="color:white">My Projects</h1>
+      <br>
+      <br>
+      <br>
+   <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
             <div class="row">
     
         <div class="col-sm-4">
-    <div class="card">
+    <div class="card" style="width: 18rem;">
+      
+       <img src="Logistic regression.png"class="card-img-top" alt="Curve" height="286px" width="286px">
+     <div class="card-body"style="background-image: linear-gradient(239deg,#2d2f35 0%,#0092cc 100%)!important">
 
-     <div class="card-body">
+        <h3>Gender prediction</h3>
 
-        <h1>Gender prediction</h1>
+        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Genderprediction">
+          View Project
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="Genderprediction" tabindex="-1" role="dialog" aria-labelledby="GenderpredictionLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="GenderpredictionLabel">Genderprediction</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Using Logistic Regression Designed a classifier which classifies a given data set according to their gender by taking weight and height as the parameters for classification.
+                By taking the above example clearly explained how logistic regression fares better compared to linear regression in binary classification scenarios
+                I have attached the link to the GITHUB repository below please have a look
+                <a href="https://github.com/yashishvin/Logistic-regression">LOGISTIC REGRESSION</a>
 
-            <p>
-          Gender Prediction: Using Logistic Regression Designed a classifier which classifies a given data set according to their gender by taking weight and height as the parameters for classification.
 
-          By taking the above example clearly explained how logistic regression fares better compared to linear regression in based classification scenarios
-
-
-
-
-            </p>
-
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
 
 
 
@@ -89,81 +133,305 @@
     </div>
 </div>
 <div class="col-sm-4">
-    <div class="card">
+    <div class="card"style="width: 18rem;">
+      <img src="network.png"class="card-img-top" alt="Curve" height="286px" width="286px" >
+     <div class="card-body"style="background-image: linear-gradient(239deg,#2d2f35 0%,#0092cc 100%)!important">
+       <h3> Friendzone</h3>
+        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Friendzone">
+          View Project
+        </button>
+        <div class="modal fade" id="Friendzone" tabindex="-1" role="dialog" aria-labelledby="FriendzoneLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="FriendzoneLabel">FriendZone</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                
+                  Worked in a group of four to create a JAVA FX based application which is like 
+                  Face book in functionality but designed in the perspective of students.
+                  Skills used: JAVA, JAVAFX.
+                  This was a course project where I worked with three other people inorder to implement the project.
+                  Some of the main algorithms used to implement functionality like finding mutual friends and common friends were B.F.S and D.F.S these were the algorithms
+                  used for the backend. The front end GUI was designed using JAVA FX
+                   
 
-     <div class="card-body">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              
+              </div>
+            </div>
+          </div>
+        </div>
 
-        <h1> Friendzone</h1>
-        <p>
-          Worked in a group of four to create a JAVA FX based application which is like 
-      	  Face book in functionality but designed in the perspective of students.
-          Skills used: JAVA, JAVAFX.
 
-        </p>
+
+
+
+
      </div>
 
     </div>
 </div>
 <div class="col-sm-4">
-    <div class="card">
+    <div class="card" style="width: 18rem;">
+      <img src="supermarket.jpg"class="card-img-top" alt="Curve" height="286px" width="286px">
+     <div class="card-body"style="background-image: linear-gradient(239deg,#2d2f35 0%,#0092cc 100%)!important">
+           <h3>S.A.S </h3>
+        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#SAS">
+          View Project
+        </button>
+        <div class="modal fade" id="SAS" tabindex="-1" role="dialog" aria-labelledby="SASLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="SASLabel">Supermarket Automation Software</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+               
+                  This was a group project in my Software Design class. I worked with two other students on this project. The project was completed in two phases
+                  In the first phase we identified the requirements,the users, the environment we did this through,use case,class diagrams, interaction diagrams and various other tools to simulate the environment once we were done with the analyzing
+                  we moved to implementing the design. We genereated the Java code we used the inferrences from our requirements to identify our classes and objectsafter we were done with the code we designed our database using  MySQL.
+        
+                
 
-     <div class="card-body">
-
-        <h1>Supermarket automation software</h1>
-        <p>
-          	Designed and implemented the back end of Supermarket automation software. Software Skills Used: JAVA, MySQL
-        </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+       
      </div>
 
     </div>
 </div>
 </div>
 </div>
-         
+
+ 
 <div class="carousel-item">
     <div class="row">
 
 <div class="col-sm-4">
-<div class="card">
+<div class="card" style="width: 18rem;">
+  <img src="microOG.jpg" class="card-img-top"alt="Curve" height="286px" width="286px" >
+<div class="card-body"style="background-image: linear-gradient(239deg,#2d2f35 0%,#0092cc 100%)!important">
 
-<div class="card-body">
-
-<h1>IOT CHALLENGE</h1>
-<p>
-  	Worked on an ATMEL micro controller learnt how to program the micro controller. Configured a LDR a Wi-Fi module and a buzzer .The LDR was used to sense data this data was later relayed to a cloud which generated a graph out of the data collected. The buzzer was configured to detect wrong input or wrong port entry.
-</p>
-
+<h3>IOT CHALLENGE</h3>
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#IC" height="286px" width="286px">
+  View Project
+</button>
+<div class="modal fade" id="IC" tabindex="-1" role="dialog" aria-labelledby="ICLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ICLabel">FriendZone</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+          Worked on an ATMEL micro controller learnt how to program the micro controller. Configured a LDR a Wi-Fi module and a buzzer .The LDR was used to sense data this data was later relayed to a cloud which generated a graph out of the data collected. The buzzer was configured to detect wrong input or wrong port entry. We used sensors to collect temeperature data and once the data was collected we configured our wifif module to relay the data to a cloud which would plot the data and make inferrences
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
 </div>
 
 </div>
+
 </div>
+</div>
+
 <div class="col-sm-4">
-<div class="card">
+<div class="card" style="width: 18rem;">
+  <img src="pokemonsimulator.png" class="card-img-top" alt="Curve" height="286px" width="286px" >
+<div class="card-body"style="background-image: linear-gradient(239deg,#2d2f35 0%,#0092cc 100%)!important">
+<h3>Pokemon Simulator</h3>
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#PS">View Project</button>
+<div class="modal fade" id="PS" tabindex="-1" role="dialog" aria-labelledby="PSLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="PSLabel">Pokemon Simulator</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      Implemented a pokemon simulator based on statististics collected from <a href="https://github.com/yashishvin/Logistic-regression">Pokemon Statistics</a>. Using the data computed different battle scenarios and possible outcomes
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="card-body">
 
-<h1>POKEMON SIMULATOR</h1>
-<P>Designed and Implemented a Pokemon simulator which would help in computing different battle scenarios and their outcomes 
+
+
+</div>
+
+
+</div>
+</div>
+
+<div class="col-sm-4">
+<div class="card"style="width: 18rem;">
+  <img src="collabwatch.png" class="card-img-top" alt="Curve" height="286px" width="286px">
+<div class="card-body"style="background-image: linear-gradient(239deg,#2d2f35 0%,#0092cc 100%)!important">
+
+<h3>Collabwatch</h3>
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#CW">View Project</button>
+<div class="modal fade" id="CW" tabindex="-1" role="dialog" aria-labelledby="CWLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="CWLabel">Collabwatch</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      One of the biggest problems with online learning is that there is not much human interaction involved, which leads students to feel disconnected, isolated and like they are not part of a community. This results in them not watching lectures and also lowers grades and productivity.
+      CollabWatch will help solve this problem by mimicking interactions you would have in an in-person class. CollabWatch does this by having a space where you can watch both live and video lectures with friends or with strangers.
+      Furthermore, in many classes teachers ask students to discuss or solve a particular problem with other students sitting near them. These conversations are stimulating, fun, and help create bonds between students inside the classroom. However, this is, unfortunately, not a possibility in online classes. But with CollabWatch this can become a reality.
+      CollabWatch is a website that allows you to watch class lectures with your friends or with randomized strangers.
+      Below are the images of the login page and the landing Page
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <img src="loginpagecollabwatch.png"  alt="login page"height="466px" width="466px" >
+        <h5>Login Page</h5>
+        <img src="collabwatch.png"  alt="landing page"height="466px" width="466px" >
+        <h5>Langing Page</h5>
+      
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="carousel-item">
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+      <img src="courseenrollemnt.png"class="card-img-top" alt="Curve"height="286px" width="286px">
+    <div class="card-body"style="background-image: linear-gradient(239deg,#2d2f35 0%,#0092cc 100%)!important">
+    <h3>Course Enrollment</h3>
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#CE">View Project</button>
+    <div class="modal fade" id="CE" tabindex="-1" role="dialog" aria-labelledby="CELabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="CWLabel">Course Enrollment</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Designed and Implemented a fully functional Course enrollment system. There were two main phases to this project in The initial phase implemented the functionality of a course view to view all the courses available ,then a cart view which would be a list of courses the student has added to the cart and is looking to tak the next semester once this was done I also added a course reccomendation component where courses would be reccomended to the student on the basis of the ratings he/she gives to the previously taken courses
+            In the second phase worked on designing the elements present in the page improved the navigation model reduced the cost of naviagtion and used different visual design principles to draw the users attention
+            The entire project was completed using React and some HTML,CSS
+           <a href="https://github.com/yashishvin/Course-Enrollment-System">GitHub repository</a>. 
+                <img src="courseenrollemnt.png"  alt="landing page"height="466px" width="466px" >
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card" style="width: 18rem;">
+      <img src="fitnesstracker.png" class="card-img-top" alt="Curve" height="286px" width="286px">
+    <div class="card-body"style="background-image: linear-gradient(239deg,#2d2f35 0%,#0092cc 100%)!important">
+    <h3>  Fitness Tracker</h3>
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#FT">View Project</button>
+    <div class="modal fade" id="FT" tabindex="-1" role="dialog" aria-labelledby="FTLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="FTLabel">Collabwatch</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              Designed and Implemented a fitness tracker application using React Native the application keeps track of your exercises,your claorie intake and suggests diet plans and exercise plans for you. Through this project I gained proficiency in working with API calls
+      
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card"style="width: 18rem;">
+      <img src="shoppingassistant.png" class="card-img-top" alt="Curve" height="286px" width="286px">
+    <div class="card-body"style="background-image: linear-gradient(239deg,#2d2f35 0%,#0092cc 100%)!important">
+    <h3>  Shopping assistant</h3>
+    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#SA">View Project</button>
+    <div class="modal fade" id="SA" tabindex="-1" role="dialog" aria-labelledby="SALabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="SALabel">Shopping assistant</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           Implemented a virtual shopping assistant for Wisc Shop using Dialog flow integrated Dialogflow with Wisc shop. The virtual assistant would be able to search for products,fetch reviews of products,and do various tasks like checking productsout. Worked entierly using JS and Dialogflow <output></output>
+      
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    </div>
+  </div>
   
-</P>
-</div>
-
 </div>
 </div>
-<div class="col-sm-4">
-<div class="card">
-
-<div class="card-body">
-
-<h1>Collabwatch</h1>
-<P>Worked in a group of three to create a video sharing application where in a group of people can view the same video at a time</P>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-
 
 
 
@@ -182,71 +450,75 @@
 
 </div>
 </div>
+<div>
+  <h1>
+    coursework
+  </h1>
+<div class="row"id="coursework">
+  
+  <div class="col-sm-5">
+    <ul style="list-style-type:none">
+      <h2 style="color:white">University Of Wisconsin-Madison</h2>
+       <h3>B.S in Computer Science May'21</h3>
+       
+       <li>CS 11:Discrete Mathematics</li>
+       <br>
+       
+       <li>CS 252:Introduction to Computer Engineering</li>
+       <br>
+       
+       <li>CS 400:Programming 3</li>
+       <br>
+       <li>CS 532:Matrix Methods in Machine Learning</li>
+       <br>
+       
+       <li>CS 577:Introduction to Algorithms</li>
+       <br>
+       
+       <li>CS 639:Building User Interface</li>
+       <br>
+      
+       <li>CS 540:Introduction to Artificial Intelligence</li>
+       <br>
+      
+       <li>CS 354:Machine Organization and Programming</li>
+       <br>
+       
+       <li>
+         CS 506:Software Engineering
+       </li>
+       <br>
+       
+       <li>CS 537:Operating Systems</li>
 
-<div class="row">
-  <div class="col-sm-4"></div>
-  <div class="col-sm-4">
-    
-<h1>Skills and Course work</h1>
-<br>
-<br>
-Java<div class="progress" style="height: 20px; width:200px">
-  <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+       
+     </ul>
   </div>
-  <br>
-  <br>
-  c++ <div class="progress" style="height: 20px; width:200px">
-    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
-  <br>
-  <br>
-  HTML <div class="progress"style="height: 20px; width:200px">
-   <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
-  <br>
-  <br>
-  CSS <div class="progress"style="height: 20px; width:200px">
-   <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
-  <br>
-  <br>
-  Python<div class="progress"style="height: 20px; width:200px">
-     <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-  </div>
-  </div>
-  <div class="col-sm-4">
+ 
+  <div class="col-sm-5">
+
+    <ul style="list-style-type:none">
+      <h2 style="color:white">Manipal University</h2>
+        <h5 style="color:white">Took a transfer after my Sophomore year</h5>
+       <h3>B.S in Computer Science (Aug' 17- May'19)</h3>
+      <br>
+      <li>CS 111:Introduction to Programming</li>
+      <br>
+      <li>CS 121:Java Programming</li>
+      <br>
+      <li>CS 122:Computer Organization and Architecture</li>
+      <br>
+      <li>CS 233:Software Design Using Object Oriented Paradigm</li>
+     <br>
+      <li>CS 232:Switching Circuits and Logic Design</li>
+      <br>
+      <li>CS 231:Data Structures</li>
     <br>
-    <br>
-    <br>
-    <ul>
-      <li>Comp sci 200</li>
+      <li>CS 241:Introduction to Microprocessor Systems</li>
       <br>
+      <li>CS 242:Database Management Systems</li>
       <br>
-      <li>Comp sci 240</li>
-      <br>
-      <br>
-      <li>Comp sci 252</li>
-      <br>
-      <br>
-      <li>Comp sci 300</li>
-      <br>
-      <br>
-      <li>Comp sci 400</li>
-      <br>
-      <br>
-      <li>Comp sci 532</li>
-      <br>
-      <br>
-      <li>Comp sci 577</li>
-      <br>
-      <br>
-      <li>Comp sci 639</li>
-      <br>
-      <br>
-      <li>Comp sci 537</li>
-      <br>
-      <br>
-      <li>Comp sci 564</li>
+      <li>IHS 241:Engineering Economics and Management </li>
       
     </ul>
 
@@ -255,10 +527,55 @@ Java<div class="progress" style="height: 20px; width:200px">
 
 
   </div>
+  <div class="col-sm-2"></div>
 </div>
+</div>
+<div class="jumbotron" id="skills">
+    
+  <h1>Skills</h1>
   <br>
   <br>
-  <div class="jumbotron text-center" height="150px" width="auto">
+  <p style="color:black">The skills below are some of the skills I am most familiar with these are an estimate I look forward to learning more</p>
+  Java<div class="progress" style="height: 50px; width:500px">
+    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <br>
+    <br>
+    c++ <div class="progress" style="height: 50px; width:480px">
+      <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <br>
+    <br>
+    HTML <div class="progress"style="height: 50px; width:500px">
+     <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <br>
+    <br>
+    CSS <div class="progress"style="height: 50px; width:500px">
+     <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <br>
+    <br>
+    Python<div class="progress"style="height: 50px; width:350px">
+       <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <br>
+    <br>
+    JS<div class="progress"style="height: 50px; width:450px">
+      <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+   </div>
+   <br>
+   <br>
+    React<div class="progress"style="height: 50px; width:450px">
+      <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+   </div>
+   MySQL<div class="progress"style="height: 50px; width:250px">
+    <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+ </div>
+    </div>
+  <br>
+  <br>
+  <div class="jumbotron" style="padding-top:15px;padding-bottom:0px;margin:0px" id="contactme">
     <h1 style="text-align:center;">Contact Me</h1>
     <br>
     <br>
@@ -295,10 +612,9 @@ Java<div class="progress" style="height: 20px; width:200px">
        </div>
        </div>
   
-  
   </div>
 </div>
 
-
+<div style="height: 20px;" id="particles-js">This</div>
 </body>
 </html>
