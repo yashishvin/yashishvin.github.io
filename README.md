@@ -23,57 +23,74 @@ Thanuja: Booted the inner VM with the changed kernel, checked dmesg logs, and va
 Thanuja: Documented the KVM code changes, noting which parts of code were changed and how the exit-counting mechanism was implemented.
 Yash: Documented the procedures for testing, including the various workloads used to check exit types and the findings observed from test work.
 
-  Q2. Documentation -
+Q2. Documentation -
 
    Step 1: Environment Setup - Setting up Google Cloud VM
-To begin the assignment, we re-created the setup from Assignment 1 to establish a solid foundation for the tasks in Assignment 2. This involved creating the outer VM on Google Cloud, ensuring that it was configured with nested virtualization capabilities to support the requirements of this assignment. We also installed and configured essential tools, such as Google Chrome
-Remote Desktop, allowing us to easily access and manage the VM remotely for further development and testing. Additionally, we set up the inner VM within the outer environment, replicating the nested virtualization setup used in Assignment 1. This inner VM provided the environment necessary to thoroughly test the changes we planned to make to the kernel's KVM module, facilitating accurate and isolated evaluation of our modifications. This initial setup ensured a seamless transition into the new tasks, allowing us to focus on kernel development and testing without setup complications. 
+   To begin the assignment, we re-created the setup from Assignment 1 to establish a solid foundation for the tasks in Assignment 2. This involved creating the outer VM on Google 
+   Cloud, ensuring that it was configured with nested virtualization capabilities to support the requirements of this assignment. We also installed and configured essential 
+   tools, such as Google Chrome
+   Remote Desktop, allowing us to easily access and manage the VM remotely for further development and testing. Additionally, we set up the inner VM within the outer environment, 
+   replicating the nested virtualization setup used in Assignment 1. This inner VM provided the environment necessary to thoroughly test the changes we planned to make to the 
+   kernel's KVM module, facilitating accurate and isolated evaluation of our modifications. This initial setup ensured a seamless transition into the new tasks, allowing us to 
+   focus on kernel development and testing without setup complications. 
 
    Step 2:
-Following the initial setup, we moved on to the kernel build phase, where we prepared the environment for modifying the KVM hypervisor. First, we forked the Linux kernel source code from the main repository on GitHub into our personal GitHub accounts.
-This provided us with a dedicated space to make and track changes.
+   Following the initial setup, we moved on to the kernel build phase, where we prepared the environment for modifying the KVM hypervisor. First, we forked the Linux kernel 
+   source code from the main repository on GitHub into our personal GitHub accounts.
+   This provided us with a dedicated space to make and track changes.
 
-We then cloned our forked repository into the outer VM, which served as our main development environment.
-git clone https://github.com/Thanuja0911/linux.git
-cd linux
+   We then cloned our forked repository into the outer VM, which served as our main development environment.
+   git clone https://github.com/Thanuja0911/linux.git
+   cd linux
 
-Then we install the necessary packages to build a Linux kernel using below commands:
+   Then we install the necessary packages to build a Linux kernel using below commands:
 
-sudo apt update
-sudo apt install build-essential libncurses-dev bison flex libssl-dev libelf-dev
+   sudo apt update
+   sudo apt install build-essential libncurses-dev bison flex libssl-dev libelf-dev
 
-Then, using the cloned kernel source, we configured the kernel build environment. This included using make menuconfig to ensure the necessary components, like KVM support, were enabled for our custom kernel build.
-We also need to ensure that the following lines in your config file are set to empty strings if not you may come across compilation errors related to certificates, you can edit your file using text editors like vim or nano
+   Then, using the cloned kernel source, we configured the kernel build environment. This included using make menuconfig to ensure the necessary components, like KVM support, 
+   were enabled for our custom kernel build.
+   We also need to ensure that the following lines in your config file are set to empty strings if not you may come across compilation errors related to certificates, you can 
+   edit your file using text editors like vim or nano
 
-CONFIG_SYSTEM_REVOCATION_KEYS=""
-CONFIG_SYSTEM_TRUSTED_KEYS =""
+   CONFIG_SYSTEM_REVOCATION_KEYS=""
+   CONFIG_SYSTEM_TRUSTED_KEYS =""
 
-We proceeded with compiling the kernel with command: make -j$(nproc). The compilation takes a while it depends on the size of your RAM and the number of cores on your system, if your build is successful you should see a message saying that the Kernel is ready. After the build execute the command make modules
-Before installing the custom-built kernel, we took a snapshot of the outer VM to safeguard our progress, in case any issues arose with the new kernel. You can take a snapshot from the google cloud console in the Compute Engine dashboard navigate to Storage>Snapshots>CreateSnapShot
+   We proceeded with compiling the kernel with command: make -j$(nproc). The compilation takes a while it depends on the size of your RAM and the number of cores on your system, 
+   if your build is successful you should see a message saying that the Kernel is ready. After the build execute the command make modules
+   Before installing the custom-built kernel, we took a snapshot of the outer VM to safeguard our progress, in case any issues arose with the new kernel. You can take a snapshot 
+   from the google cloud console in the Compute Engine dashboard navigate to Storage>Snapshots>CreateSnapShot
 
-Once the build was successful, we installed the new kernel through the following commands
+   Once the build was successful, we installed the new kernel through the following commands
 
-sudo make modules_install (Installs the compiled kernel modules)
+   sudo make modules_install (Installs the compiled kernel modules)
 
-sudo make install(installs the compiled linux and related files( like the kernel image and System.map)
+   sudo make install(installs the compiled linux and related files( like the kernel image and System.map)
 
-If the grub is not updated with the previous command we can use the following command
+   If the grub is not updated with the previous command we can use the following command
 
-sudo update-grub
+  sudo update-grub
 
-After this we rebooted the outer VM using the command
-sudo reboot
+  After this we rebooted the outer VM using the command
+  sudo reboot
 
-After rebooting We verified that the new kernel works by checking the version of the kernel with the command 
-uname -r
+  After rebooting We verified that the new kernel works by checking the version of the kernel with the command 
+  uname -r
 
-After completing these steps we will have the kernel installed. This setup allowed us to begin modifying the kernel code with a stable and verified environment, ready to implement the KVM-specific changes.
-We then modified the KVM source code to implement the assignment requirements. We began by locating the KVM exit handling code within the kernel's source files. Specifically, this involved identifying the __vmx_handle_exit function located in(~/linux/arch/x86/kvm/vmx) the KVM module, where VM exits are handled. 
-Here, we defined our global total exit counter and a global counter for each exit, for every 10,000 exits we print the stats for how many exits we encountered and how many time we encountered them we do this through the print k function, we print a human-readable name of the exit along with the exit code and the number of times the exit occurred. You can find a snippet of the code below( get_exit_reason_name converts the exit reason to a human readable name
+  After completing these steps we will have the kernel installed. This setup allowed us to begin modifying the kernel code with a stable and verified environment, ready to 
+  implement the KVM-specific changes.
+  We then modified the KVM source code to implement the assignment requirements. We began by locating the KVM exit handling code within the kernel's source files. Specifically, 
+  this involved identifying the __vmx_handle_exit function located in(~/linux/arch/x86/kvm/vmx) the KVM module, where VM exits are handled. 
+  Here, we defined our global total exit counter and a global counter for each exit, for every 10,000 exits we print the stats for how many exits we encountered and how many time 
+  we encountered them we do this through the print k function, we print a human-readable name of the exit along with the exit code and the number of times the exit occurred. You 
+  can find a snippet of the code below( get_exit_reason_name converts the exit reason to a human readable name
 
-THE CODE SNIPPET WE ADDED INTO VMX.C
-static unsigned long long exit_counters[256] = {0}; // per-exit-type counters
-static unsigned long long total_exit_count = 0; // total exit counter
+  THE CODE SNIPPET WE ADDED INTO VMX.C
+  ```c
+  static unsigned long long exit_counters[256] = {0}; // per-exit-type counters
+  static unsigned long long total_exit_count = 0; // total exit counter
+  static unsigned long long exit_counters[256] = {0}; // per-exit-type counters
+  static unsigned long long total_exit_count = 0; // total exit counter
 
 /* Helper function which map exit codes to human readable names */
 static const char *get_exit_reason_name(int reason) {
@@ -133,7 +150,6 @@ static const char *get_exit_reason_name(int reason) {
 }
 
 The function log_exit_counts prints the statistics for the number of exits
-
 static void log_exit_counts(void) {
     printk(KERN_INFO "KVM Exit Stats (Every 10,000 Exits):\n");
     for (int exit_code = 0; exit_code < 256; exit_code++) {
@@ -143,7 +159,6 @@ static void log_exit_counts(void) {
         }
     }
 }
-
 /* Code snippet to be added to the KVM exit handler */
         int exit_code = exit_reason.basic; // Extract exit reason
         exit_counters[exit_code]++;        // Increment per-exit-type counter
@@ -155,13 +170,16 @@ static void log_exit_counts(void) {
           printk(KERN_INFO "Total VM Exits so far: %llu\n", total_exit_count );
         }
 
+```
 Add the above code snippet towards the start of the function __vmx_handle_exit
 After we have made the changes save it and rebuild and install the kernel using the following commands.
 
+```bash
 1)make -j$(nproc)( Build the kernel)
 2)make modules(Build the modules)
 3)sudo make modules_install (Installs the compiled kernel modules)
 4)sudo make install(installs the compiled linux and related files( like the kernel image and System.map)
+```
 
 Once this is done reboot the system using the command
 Sudo reboot
