@@ -40,21 +40,27 @@ Q2. Documentation -
    This provided us with a dedicated space to make and track changes.
 
    We then cloned our forked repository into the outer VM, which served as our main development environment.
+   ```bash
    git clone https://github.com/Thanuja0911/linux.git
    cd linux
+   ```
 
    Then we install the necessary packages to build a Linux kernel using below commands:
 
+   ```bash
    sudo apt update
    sudo apt install build-essential libncurses-dev bison flex libssl-dev libelf-dev
+   ```
 
    Then, using the cloned kernel source, we configured the kernel build environment. This included using make menuconfig to ensure the necessary components, like KVM support, 
    were enabled for our custom kernel build.
    We also need to ensure that the following lines in your config file are set to empty strings if not you may come across compilation errors related to certificates, you can 
    edit your file using text editors like vim or nano
 
+   ```bash
    CONFIG_SYSTEM_REVOCATION_KEYS=""
    CONFIG_SYSTEM_TRUSTED_KEYS =""
+   ```
 
    We proceeded with compiling the kernel with command: make -j$(nproc). The compilation takes a while it depends on the size of your RAM and the number of cores on your system, 
    if your build is successful you should see a message saying that the Kernel is ready. After the build execute the command make modules
@@ -62,20 +68,28 @@ Q2. Documentation -
    from the google cloud console in the Compute Engine dashboard navigate to Storage>Snapshots>CreateSnapShot
 
    Once the build was successful, we installed the new kernel through the following commands
-
+  ```bash
    sudo make modules_install (Installs the compiled kernel modules)
 
    sudo make install(installs the compiled linux and related files( like the kernel image and System.map)
-
+   ```
    If the grub is not updated with the previous command we can use the following command
-
-  sudo update-grub
+   
+   ```bash
+   sudo update-grub
+   ```
 
   After this we rebooted the outer VM using the command
+ 
+  ```bash
   sudo reboot
+  ```
 
   After rebooting We verified that the new kernel works by checking the version of the kernel with the command 
+  
+   ```bash
   uname -r
+  ```
 
   After completing these steps we will have the kernel installed. This setup allowed us to begin modifying the kernel code with a stable and verified environment, ready to 
   implement the KVM-specific changes.
@@ -182,13 +196,16 @@ After we have made the changes save it and rebuild and install the kernel using 
 ```
 
 Once this is done reboot the system using the command
-Sudo reboot
+```bash
+sudo reboot
+```
 
 After logging back in to the outer VM To study the behaviour of exits we need to restart our inner vm we did it through the virt manager GUI on the outer VM, which we accessed through google remote desktop connection.
 
 To check the type of exits occurring we ran the following command on the outer VM
-
+```bash
 sudo dmesg | grep "  Exit Code"
+```
 
 This printed the statistic of the different types of exits and the number of times they were occurring.
 
